@@ -87,8 +87,7 @@ namespace ImageEdgeDetection
 
         private void ApplyFilterBtn_Click(object sender, EventArgs e)
         {
-            Bitmap image = originalBitmap;
-            resultBitmap = mainform.ApplyFilter(image);
+            resultBitmap = mainform.ApplyFilter(originalBitmap);
             picPreview.Image = resultBitmap;
 
         }
