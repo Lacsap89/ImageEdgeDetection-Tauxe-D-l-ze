@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\IEdgeDetection.cs" />
-    <Compile Include="Business\MainForm.cs" />
+    <Compile Include="Business\LaplacianFilter3x3.cs" />
     <Compile Include="Business\ExtBitmap.cs" />
     <Compile Include="Input_Output\InputOutputFile.cs" />
     <Compile Include="Input_Output\IImageManipulation.cs" />

@@ -31,7 +31,7 @@
             this.picPreview = new System.Windows.Forms.PictureBox();
             this.btnOpenOriginal = new System.Windows.Forms.Button();
             this.btnSaveNewImage = new System.Windows.Forms.Button();
-            this.cmbEdgeDetection = new System.Windows.Forms.ComboBox();
+            this.ApplyFilterBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picPreview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,41 +70,22 @@
             this.btnSaveNewImage.UseVisualStyleBackColor = true;
             this.btnSaveNewImage.Click += new System.EventHandler(this.btnSaveNewImage_Click);
             // 
-            // cmbEdgeDetection
+            // ApplyFilterBtn
             // 
-            this.cmbEdgeDetection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEdgeDetection.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEdgeDetection.FormattingEnabled = true;
-            this.cmbEdgeDetection.Items.AddRange(new object[] {
-            "None",
-            "Laplacian 3x3",
-            "Laplacian 3x3 Grayscale",
-            "Laplacian 5x5",
-            "Laplacian 5x5 Grayscale",
-            "Laplacian of Gaussian",
-            "Laplacian 3x3 of Gaussian 3x3",
-            "Laplacian 3x3 of Gaussian 5x5 - 1",
-            "Laplacian 3x3 of Gaussian 5x5 - 2",
-            "Laplacian 5x5 of Gaussian 3x3",
-            "Laplacian 5x5 of Gaussian 5x5 - 1",
-            "Laplacian 5x5 of Gaussian 5x5 - 2",
-            "Sobel 3x3",
-            "Sobel 3x3 Grayscale",
-            "Prewitt",
-            "Prewitt Grayscale",
-            "Kirsch",
-            "Kirsch Grayscale"});
-            this.cmbEdgeDetection.Location = new System.Drawing.Point(168, 627);
-            this.cmbEdgeDetection.Name = "cmbEdgeDetection";
-            this.cmbEdgeDetection.Size = new System.Drawing.Size(288, 32);
-            this.cmbEdgeDetection.TabIndex = 20;
-            this.cmbEdgeDetection.SelectedIndexChanged += new System.EventHandler(this.NeighbourCountValueChangedEventHandler);
+            this.ApplyFilterBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApplyFilterBtn.Location = new System.Drawing.Point(229, 618);
+            this.ApplyFilterBtn.Name = "ApplyFilterBtn";
+            this.ApplyFilterBtn.Size = new System.Drawing.Size(150, 46);
+            this.ApplyFilterBtn.TabIndex = 17;
+            this.ApplyFilterBtn.Text = "Apply Filter";
+            this.ApplyFilterBtn.UseVisualStyleBackColor = true;
+            this.ApplyFilterBtn.Click += new System.EventHandler(this.ApplyFilterBtn_Click);
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(624, 675);
-            this.Controls.Add(this.cmbEdgeDetection);
+            this.Controls.Add(this.ApplyFilterBtn);
             this.Controls.Add(this.btnSaveNewImage);
             this.Controls.Add(this.btnOpenOriginal);
             this.Controls.Add(this.picPreview);
@@ -124,7 +105,7 @@
         private System.Windows.Forms.PictureBox picPreview;
         private System.Windows.Forms.Button btnOpenOriginal;
         private System.Windows.Forms.Button btnSaveNewImage;
-        private System.Windows.Forms.ComboBox cmbEdgeDetection;
+        private System.Windows.Forms.Button ApplyFilterBtn;
     }
 }
 
