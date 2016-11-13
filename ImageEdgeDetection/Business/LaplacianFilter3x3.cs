@@ -35,10 +35,10 @@ namespace ImageEdgeDetection.Business
             {
                 image_IO.SaveBitmap(image);
             }
-            catch(Exception e)
+            catch(ExternalException e)
             {
-                
-                image = null;
+                Bitmap imageException = null;
+                image = imageException;
                 
             }
 

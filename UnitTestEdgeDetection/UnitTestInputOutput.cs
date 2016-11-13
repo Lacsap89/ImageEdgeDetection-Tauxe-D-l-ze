@@ -45,7 +45,7 @@ namespace UnitTestEdgeDetection
 
             laf.saveBitmap(image);
 
-            //Assert.IsNotNull(bmp);
+            Assert.IsNotNull(image); //TODO A CHANGER !!!
         }
 
 

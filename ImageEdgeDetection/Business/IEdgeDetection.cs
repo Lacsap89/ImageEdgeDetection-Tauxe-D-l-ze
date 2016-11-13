@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace ImageEdgeDetection.Business
 {
-    interface IEdgeDetection
+   public interface IEdgeDetection
     {
         Bitmap ApplyFilter(Bitmap originalImage);
     }
