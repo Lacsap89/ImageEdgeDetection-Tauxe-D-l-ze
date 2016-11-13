@@ -33,7 +33,11 @@ namespace ImageEdgeDetection
 
         private void btnOpenOriginal_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
+
+           originalBitmap = mainform.importImage();
+            previewBitmap = originalBitmap.CopyToSquareCanvas(picPreview.Width);
+            picPreview.Image = previewBitmap;
+           /* OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Select an image file.";
             ofd.Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg |Bitmap Images(*.bmp)|*.bmp";
 
@@ -47,14 +51,15 @@ namespace ImageEdgeDetection
                 picPreview.Image = previewBitmap;
 
                 //ApplyFilter(true);
-            }
+            }*/
         }
 
         private void btnSaveNewImage_Click(object sender, EventArgs e)
         {
             //ApplyFilter(false);
+            mainform.saveBitmap(resultBitmap);
 
-            if (resultBitmap != null)
+          /*  if (resultBitmap != null)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Title = "Specify a file name and file path";
@@ -82,7 +87,7 @@ namespace ImageEdgeDetection
 
                     resultBitmap = null;
                 }
-            }
+            }*/
         }
 
         private void ApplyFilterBtn_Click(object sender, EventArgs e)

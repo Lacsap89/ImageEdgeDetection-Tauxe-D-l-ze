@@ -30,12 +30,11 @@ namespace ImageEdgeDetection.Input_Output
 
             }
             return importedBitmap;
-           // throw new NotImplementedException();
+          
         }
 
         public void SaveBitmap(Bitmap image)
         {
-
 
             if (image != null)
             {
@@ -66,9 +65,7 @@ namespace ImageEdgeDetection.Input_Output
                     streamWriter.Close();
                 }
             }
-
-
-            // throw new NotImplementedException();
+            
         }
     }
 }

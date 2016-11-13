@@ -1,7 +1,10 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ImageEdgeDetection.Business;
 using ImageEdgeDetection.Input_Output;
 using System.Drawing;
+using NSubstitute;
+using System.Runtime.InteropServices;
 
 namespace UnitTestEdgeDetection
 {
@@ -11,17 +14,74 @@ namespace UnitTestEdgeDetection
         [TestMethod]
         public void TestInput()
         {
-            InputOutputFile iof = new InputOutputFile();
-            iof.ImportBitmap();
+            LaplacianFilter3x3 laf = new LaplacianFilter3x3();
+            var importImage = Substitute.For< IImageManipulation > ();
+            importImage.ImportBitmap();
+
+            Bitmap bmp = laf.importImage();
+
+            Assert.IsNotNull(bmp);
         }
 
         [TestMethod]
         public void TestOutput()
         {
-           InputOutputFile iof = new InputOutputFile();
-            
-            Bitmap img = iof.ImportBitmap();
-            iof.SaveBitmap(img);
+            LaplacianFilter3x3 laf = new LaplacianFilter3x3();
+            Bitmap image = new Bitmap(200,200);
+            var importImage = Substitute.For<IImageManipulation>();
+            importImage.SaveBitmap(image);
+
+            laf.saveBitmap(image);
+
+            //Assert.IsNotNull(bmp);
         }
+        [TestMethod]
+        public void TestOutput2()
+        {
+            LaplacianFilter3x3 laf = new LaplacianFilter3x3();
+            Bitmap image = importImageTest();
+            var importImage = Substitute.For<IImageManipulation>();
+            importImage.SaveBitmap(image);
+
+            laf.saveBitmap(image);
+
+            //Assert.IsNotNull(bmp);
+        }
+
+
+        [TestMethod]
+        public void TestOutputException()
+        { 
+            LaplacianFilter3x3 laf = new LaplacianFilter3x3();
+            Bitmap image = new Bitmap(200, 200);
+            var importImage = Substitute.For<IImageManipulation>();
+           // importImage.SaveBitmap(image);
+            importImage.When(x => x.SaveBitmap(image)).Do(x => { throw new Exception();});
+
+            laf.saveBitmap(image);
+            /*  try
+              {
+                  laf.saveBitmap(image);
+              }
+              catch
+              {
+                  Assert.Fail("Error");
+              }*/
+
+
+            Assert.IsNull(image);
+        }
+
+        public Bitmap importImageTest()
+        {
+            LaplacianFilter3x3 laf = new LaplacianFilter3x3();
+            var importImage = Substitute.For<IImageManipulation>();
+            importImage.ImportBitmap();
+
+            Bitmap bmp = laf.importImage();
+            return bmp;
+        }
+
+
     }
 }
