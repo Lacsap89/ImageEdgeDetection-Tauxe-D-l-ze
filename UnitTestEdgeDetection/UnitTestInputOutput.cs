@@ -39,7 +39,8 @@ namespace UnitTestEdgeDetection
         public void TestOutput2()
         {
             LaplacianFilter3x3 laf = new LaplacianFilter3x3();
-            Bitmap image = importImageTest();
+           // Bitmap image = importImageTest();
+            Bitmap image = null;
             var importImage = Substitute.For<IImageManipulation>();
             importImage.SaveBitmap(image);
 
@@ -56,17 +57,17 @@ namespace UnitTestEdgeDetection
             Bitmap image = new Bitmap(200, 200);
             var importImage = Substitute.For<IImageManipulation>();
            // importImage.SaveBitmap(image);
-            importImage.When(x => x.SaveBitmap(image)).Do(x => { throw new Exception();});
+            importImage.When(x => x.SaveBitmap(image)).Do(x => { throw new NullReferenceException();});
 
-            laf.saveBitmap(image);
-            /*  try
+           // laf.saveBitmap(image);
+              try
               {
                   laf.saveBitmap(image);
               }
               catch
               {
                   Assert.Fail("Error");
-              }*/
+              }
 
 
             Assert.IsNull(image);

@@ -30,16 +30,19 @@ namespace ImageEdgeDetection.Business
 
         public void saveBitmap(Bitmap image)
         {
-            
             try
             {
                 image_IO.SaveBitmap(image);
             }
-            catch(ExternalException e)
+           /* catch(Exception e)
             {
                 Bitmap imageException = null;
                 image = imageException;
                 
+            }*/
+            catch(NullReferenceException nre)
+            {
+                image = null;
             }
 
            

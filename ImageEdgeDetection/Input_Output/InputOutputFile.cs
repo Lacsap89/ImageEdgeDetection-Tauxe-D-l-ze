@@ -35,9 +35,9 @@ namespace ImageEdgeDetection.Input_Output
 
         public void SaveBitmap(Bitmap image)
         {
-
-            if (image != null)
-            {
+            //Put in comment to test the NullReferenceException
+           /* if (image != null)
+            { }*/
                 //Display windows to save image
                 SaveFileDialog sfd = new SaveFileDialog();
                 sfd.Title = "Specify a file name and file path";
@@ -64,7 +64,7 @@ namespace ImageEdgeDetection.Input_Output
                     streamWriter.Flush();
                     streamWriter.Close();
                 }
-            }
+            //}
             
         }
     }
