@@ -13,6 +13,8 @@ namespace ImageEdgeDetection.Input_Output
     {
         Bitmap importedBitmap;
         //Bitmap resultBitmap;
+
+        public InputOutputFile(){ }
         public Bitmap ImportBitmap()
         {
             //Display windows to import image

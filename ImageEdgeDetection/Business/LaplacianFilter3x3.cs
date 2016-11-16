@@ -10,11 +10,19 @@ namespace ImageEdgeDetection.Business
 {
     public class LaplacianFilter3x3 : IEdgeDetection
     {
-        IImageManipulation image_IO;
-
+        private IImageManipulation image_IO;
+        public Boolean isNullReferenceException = false;
         public LaplacianFilter3x3()
         {
             image_IO = new InputOutputFile();
+        }
+
+        public LaplacianFilter3x3(IImageManipulation Iimage)
+        {
+            image_IO = Iimage;
+            
+
+
         }
         public Bitmap ApplyFilter(Bitmap originalImage)
         {
@@ -30,19 +38,15 @@ namespace ImageEdgeDetection.Business
 
         public void saveBitmap(Bitmap image)
         {
+            isNullReferenceException = false;
             try
             {
                 image_IO.SaveBitmap(image);
             }
-           /* catch(Exception e)
-            {
-                Bitmap imageException = null;
-                image = imageException;
-                
-            }*/
+
             catch(NullReferenceException nre)
             {
-                image = null;
+                isNullReferenceException = true;
             }
 
            

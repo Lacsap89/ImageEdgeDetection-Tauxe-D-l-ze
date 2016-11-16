@@ -53,24 +53,16 @@ namespace UnitTestEdgeDetection
         [TestMethod]
         public void TestOutputException()
         { 
-            LaplacianFilter3x3 laf = new LaplacianFilter3x3();
+            
             Bitmap image = new Bitmap(200, 200);
             var importImage = Substitute.For<IImageManipulation>();
-           // importImage.SaveBitmap(image);
+            LaplacianFilter3x3 laf = new LaplacianFilter3x3(importImage);
+            // importImage.SaveBitmap(image);
             importImage.When(x => x.SaveBitmap(image)).Do(x => { throw new NullReferenceException();});
 
-           // laf.saveBitmap(image);
-              try
-              {
-                  laf.saveBitmap(image);
-              }
-              catch
-              {
-                  Assert.Fail("Error");
-              }
+            laf.saveBitmap(image);
 
-
-            Assert.IsNull(image);
+            Assert.AreEqual(laf.isNullReferenceException, true);
         }
 
         public Bitmap importImageTest()
